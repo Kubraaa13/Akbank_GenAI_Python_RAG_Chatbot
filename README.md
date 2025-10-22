@@ -1,5 +1,8 @@
-# Akbank_GenAI_Python_RAG_Chatbot
+# 🐍 Python Kod Rehberi Chatbot (Gemini Destekli RAG Uygulaması)
 Python kodları hakkında bilgi veren ve örnekler sunan, Gemini API ve RAG mimarisi ile geliştirilmiş chatbot projesi.
+
+## 🚀 Canlı Uygulama Linki
+[https://akbankgenaipythonragchatbot-qwe9egrpuvfbxg2fazt9ug.streamlit.app/]
  
  Bu projenin amacı RAG mimarisi temelli bir yapay zeka sohbet robotu geliştirmektir. Geliştirilen chatbot, temel ve orta düzey Python kod parçacıkları ve kavramları hakkında kullanıcı sorularına, harici bir bilgi kaynağından (veri seti) bilgi çekerek doğru, ilgili ve çalışan kod örnekleri ile zenginleştirilmiş yanıtlar vermeyi hedefler. 
 
