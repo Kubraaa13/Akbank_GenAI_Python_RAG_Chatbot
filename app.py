@@ -25,6 +25,23 @@ DATA_FILE_PATH = "python_kod_aciklamalari.txt"
 
 
 # --- RAG FONKSİYONLARI ---
+DATA_FILE_PATH = "python_kod_aciklamalari.txt"
+
+# --- YENİ KONTROL SATIRINI EKLEYİN ---
+import pathlib
+current_dir = pathlib.Path(__file__).parent
+absolute_path = current_dir / DATA_FILE_PATH
+print(f"DEBUG: Aranan Mutlak Yol: {absolute_path}")
+# --- YENİ KONTROL SATIRINI EKLEYİN ---
+
+def load_and_chunk_data(file_path):
+    """Veri dosyasını yükler ve RAG için parçalara böler."""
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            raw_text = f.read()
+    except FileNotFoundError: # <-- BU OLMALI
+        st.error(f"HATA: Veri dosyası ({file_path}) bulunamadı. Lütfen kontrol edin.")
+        return []
 
 def load_and_chunk_data(file_path):
     """Veri dosyasını yükler ve RAG için parçalara böler."""
