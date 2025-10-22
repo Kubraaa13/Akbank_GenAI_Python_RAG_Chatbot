@@ -25,8 +25,6 @@ DATA_FILE_PATH = os.path.join(
 )
 
 
-st.write(f"⚠️ DEBUG: Kesinleştirilmiş Mutlak Yol: {DATA_FILE_PATH}")
-
 
 # --- RAG FONKSİYONLARI ---
 
