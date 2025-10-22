@@ -1,6 +1,5 @@
 import streamlit as st
 import os
-from dotenv import load_dotenv
 
 # --- SADECE IMPORT'LAR EN ÜSTTE OLMALI ---
 # Diğer tüm Streamlit komutları bundan sonra gelir
@@ -20,7 +19,6 @@ from langchain.chains import RetrievalQA
 
 # --- AYARLAR VE GÜVENLİK ---
 # load_dotenv, set_page_config'den SONRA çalışabilir
-load_dotenv()
 LLM_MODEL = "gemini-2.5-flash"
 EMBEDDING_MODEL = "models/text-embedding-004"
 DATA_FILE_PATH = "python_kod_aciklamalari.txt"
@@ -48,9 +46,16 @@ def load_and_chunk_data(file_path):
 @st.cache_resource 
 def create_rag_chain():
     """RAG zincirini kurar (Veri yükleme, Embedding ve ChromaDB)."""
-    if "GOOGLE_API_KEY" not in os.environ:
-        st.error("Lütfen .env dosyanızda GOOGLE_API_KEY'i tanımlayın.")
+    
+    # ------------------------------------------------------------------
+    if "GOOGLE_API_KEY" not in st.secrets:
+        st.error("Lütfen Streamlit ayarlarında 'Secrets' bölümüne GOOGLE_API_KEY'i ekleyin.")
+        st.warning("Örnek: GOOGLE_API_KEY=\"AIzaSy...\"")
         return None
+    
+    # API Anahtarını al ve os.environ'a yerleştir. Langchain bunu buradan okur.
+    os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"] 
+    # ------------------------------------------------------------------
 
     knowledge_base = load_and_chunk_data(DATA_FILE_PATH)
     if not knowledge_base:
