@@ -1,0 +1,12 @@
+[theme]
+# Temayı koyu yap
+base="dark" 
+# Ana rengi Akbank renklerine yakın bir mor olarak ayarlar (Butonlar, bağlantılar vb.)
+primaryColor="#9050C9" 
+# Arka plan rengini çok koyu gri yapar
+backgroundColor="#0E1117" 
+# Kenar çubuğu arka plan rengi
+secondaryBackgroundColor="#1F2430" 
+# Yazı rengi
+textColor="#FAFAFA"
+font="sans serif"

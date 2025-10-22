@@ -1,0 +1,6 @@
+langchain==0.1.0
+langchain-google-genai==0.0.8
+chromadb==0.4.24
+pypdf==4.1.0
+protobuf==4.25.3
+numpy==1.26.4

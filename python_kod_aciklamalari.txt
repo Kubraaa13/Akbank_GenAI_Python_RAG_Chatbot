@@ -1,0 +1,130 @@
+KOD-1: BASİT BİR FONKSİYON TANIMLAMA
+
+Python'da bir fonksiyon tanımlamak için `def` anahtar kelimesi kullanılır. Bu fonksiyon, verilen iki sayıyı toplar ve sonucu döndürür.
+```python
+def topla(a, b):
+    """
+    Verilen iki sayıyı toplar.
+    """
+    return a + b
+
+sonuc = topla(5, 3)
+print(f"Toplama sonucu: {sonuc}")
+# Çıktı: Toplama sonucu: 8
+Bu kod parçası, temel fonksiyon tanımlama yapısını ve docstring kullanımını gösterir.
+
+KOD-2: LİSTE ÜZERİNDE DÖNGÜ
+
+Python'da for döngüsü, bir iterable üzerindeki her öğe için bir işlem yapmak için kullanılır.
+meyveler = ["elma", "muz", "çilek", "portakal"]
+for meyve in meyve:
+    print(meyve)
+Listenin her bir öğesine sırayla erişilerek işlem yapılmasını sağlar.
+
+KOD-3: KOŞULLU İFADELER
+
+Python'da if, elif ve else blokları, belirli koşullar sağlandığında farklı kod bloklarının çalıştırılmasını sağlar.
+sayi = -10
+if sayi > 0:
+    durum = "Pozitif"
+elif sayi < 0:
+    durum = "Negatif"
+else:
+    durum = "Sıfır"
+print(f"Sayı durumu: {durum}")
+# Çıktı: Sayı durumu: Negatif
+Bu yapı, program akışını koşullara göre yönlendirmede temeldir.
+
+KOD-4: SÖZLÜK
+
+Python'da sözlükler, anahtar ve değer çiftlerini depolamak için kullanılır. Anahtarlar benzersiz olmalıdır.
+ogrenci = {
+    "ad": "Ali",
+    "soyad": "Yılmaz",
+    "yas": 25,
+    "sinif": "12A"
+}
+print(f"Öğrencinin adı: {ogrenci['ad']}")
+print(f"Yaş: {ogrenci.get('yas')}")
+Verilere, ilişkili anahtarları aracılığıyla hızlı erişim sağlar.
+
+KOD-5: DOSYA OKUMA VE YAZMA
+
+Python'da dosyalarla çalışmak için open() fonskiyonu ve with ifadesi kullanılır. with kullanımı, dosyanın iş bittiğinde otomatik olarak kapanmasını garanti eder.
+
+# Dosyaya yazma
+with open('deneme.txt', 'w') as dosya:
+    dosya.write('Bu, dosyaya yazılan ilk satır.')
+
+# Dosyadan okuma
+with open('deneme.txt', 'r') as dosya:
+    icerik = dosya.read()
+    print(f"Dosya içeriği: {icerik}")
+# Çıktı: Dosya içeriği: Bu, dosyaya yazılan ilk satır.
+Bu kod, metin dosyalarıyla girdi/çıktı (I/O) işlemlerini nasıl yapacağınızı gösterir.
+
+KOD-6: SINIF TANIMLAMA VE OLUŞTURMA
+
+Python'da sınıflar, Nesne Tabanlı Programlamanın temelini oluşturur.Belirli niteliklere ve davranışlara sahip nesneler yaratmak için bir şablon görevi görür. Sınıfın yapıcı (constructor) metodu olan __init__, nesne oluşturulduğunda ilk çalışır. 
+class Personel:
+    def __init__(self, ad, soyad, pozisyon):
+        # self, nesnenin kendisini temsil eder ve özelliklere erişimi sağlar.
+        self.ad = ad
+        self.soyad = soyad
+        self.pozisyon = pozisyon
+
+    def tam_bilgi_goster(self):
+        """Personelin adını, soyadını ve pozisyonunu döndürür."""
+        return f"Ad-Soyad: {self.ad} {self.soyad}, Pozisyon: {self.pozisyon}"
+
+# Nesne oluşturma (Instantiation)
+yeni_personel = Personel("Ayşe", "Kaya", "Yazılımcı")
+print(yeni_personel.tam_bilgi_goster())
+# Çıktı: Ad-Soyad: Ayşe Kaya, Pozisyon: Yazılımcı
+Bu kod, OOP'de temel bir sınıfın nasıl tanımlanacağını ve bu sınıftan bir nesnenin nasıl oluşturulacağını gösterir.
+
+KOD-7: HATA YAKALAMA(TRY-EXCEPT-FINALLY)
+
+Python'da try, except ve isteğe bağlı finally blokları, programın çalışması sırasında oluşabilecek hataları (exceptions) yönetmek ve programın beklenmedik şekilde çökmesini engellemek için kullanılır.
+def bolme_islemi(bolunen, bolen):
+    try:
+        sonuc = bolunen / bolen
+        print(f"Bölme sonucu: {sonuc}")
+    except ZeroDivisionError:
+        # Sadece sıfıra bölme hatası oluşursa bu blok çalışır.
+        print("Hata: Bir sayı sıfıra bölünemez!")
+    except TypeError:
+        # Eğer veri tipleri uygunsuzsa bu blok çalışır.
+        print("Hata: Bölme işleminde uygunsuz veri tipi kullanıldı!")
+    finally:
+        # Hata olsun veya olmasın, her zaman çalışacak kod bloğudur.
+        print("İşlem kontrolü tamamlandı.")
+
+bolme_islemi(20, 0)
+bolme_islemi(20, 4)
+# Çıktı-1: Hata: Bir sayı sıfıra bölünemez!
+# Çıktı-2: İşlem kontrolü tamamlandı.
+# Çıktı-3: Bölme sonucu: 5.0
+# Çıktı-4: İşlem kontrolü tamamlandı.
+Bu yapı, güçlü ve hataya dayanıklı Python kodları yazmanın en temel yollarından biridir.
+
+KOD-8: DIŞ KÜTÜPHANE KULLANIMI (NUMPY ÖRNEĞİ)
+
+Python'un gücü harici kütüphanelerden gelir. import anahtar kelimesi ile kütüphaneler projelere dahil edilir. NumPy, bilimsel hesaplama ve özellikle büyük, çok boyutlu diziler (array) ve matrisler için kullanılır.
+import numpy as np
+
+# Python listesi
+veri_listesi = [10, 15, 20, 25, 30]
+# NumPy array'ine dönüştürme
+numpy_dizisi = np.array(veri_listesi)
+
+# NumPy ile hızlı ortalama hesaplama
+ortalama = numpy_dizisi.mean()
+# NumPy ile tüm elemanlara 5 ekleme (Vektörel işlem)
+yeni_dizi = numpy_dizisi + 5
+
+print(f"Veri setinin ortalaması: {ortalama}")
+print(f"5 eklenmiş yeni dizi: {yeni_dizi}")
+# Çıktı: Veri setinin ortalaması: 20.0
+# Çıktı: 5 eklenmiş yeni dizi: [15 20 25 30 35]
+Bu örnek, kütüphane kullanımının temel yapısını (import) ve NumPy'ın verimli vektörel işlemlerini gösterir.
